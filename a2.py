@@ -42,13 +42,14 @@ canva = tk.Canvas(root, bg=em_col['Neutral'], height=height, width=width)
 
 
 # generate and download image from DeepAI's text-to-image api
+api_key = ''
 def get_image(text):
     r = requests.post(
         "https://api.deepai.org/api/text2img",
         data={
             'text': text,
         },
-        headers={'api-key': 'd8233716-7cd1-4341-ab2e-2808403810d3'}
+        headers={'api-key': api_key}
     )
     url = r.json().get('output_url')
     filename = "./a2/art/generated/" + url.split("/")[-1]
